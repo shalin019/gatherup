@@ -226,6 +226,7 @@ class _SigninWidgetState extends State<SigninWidget> {
                       color: Colors.white,
                       letterSpacing: 0.0,
                     ),*/
+                    textStyle: TextStyle(),
                     elevation: 0,
                     borderRadius: BorderRadius.circular(12),
                   ),
