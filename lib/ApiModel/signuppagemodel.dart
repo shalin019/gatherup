@@ -1,0 +1,8 @@
+class SignUpModel{
+  SignUpModel(){
+
+  }
+
+
+
+}
