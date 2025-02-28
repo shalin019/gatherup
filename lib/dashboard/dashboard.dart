@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 void main() {
   runApp(MyApp());
@@ -472,7 +473,163 @@ class YouScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Center(child: Text('You Screen', style: TextStyle(color: Colors.white, fontSize: 20))),
+      body:SafeArea(
+        child: Column(
+          children: [
+            Container(
+              width: double.infinity,
+              height: MediaQuery.sizeOf(context).height*0.35,
+              decoration: BoxDecoration(
+                color: Colors.orange,
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  children: [
+                    // name email gender dob and city and state
+                    Align(
+                      alignment: Alignment.centerLeft
+                      ,
+                      child: Icon(Icons.arrow_back_outlined,
+                        color: Colors.white,
+                        size: 24,
+                      ),
+                    ),
+
+                      Container(
+                      child: Icon(Icons.face,size: 120,),
+                        decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(100)),
+                      ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10.0),
+                      child: Text("aditya@gmail.com",style: TextStyle(color: Colors.white,fontSize: 18,fontWeight: FontWeight.w500
+                      ),),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Expanded(
+              child: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.white
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 20.0,right: 20,top: 0),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20.0),
+                          child: Align(alignment:Alignment.centerLeft,child: Text("Account Info",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 30),)),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20.0),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.person,size: 60,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                              Text("Name",style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600),),
+                              Text("Aditya",style: TextStyle(color: Colors.black,fontSize: 16,fontWeight: FontWeight.w400),)
+                                ],
+                              )
+                            ],
+                          ),
+                        ),Padding(
+                          padding: const EdgeInsets.only(top: 20.0),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.person,size: 60,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                              Text("Email",style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600),),
+                              Text("aditya@gmail.com",style: TextStyle(color: Colors.black,fontSize: 16,fontWeight: FontWeight.w400),)
+                                ],
+                              )
+                            ],
+                          ),
+                        ),Padding(
+                          padding: const EdgeInsets.only(top: 20.0),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.person,size: 60,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                              Text("Gender",style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600),),
+                              Text("Male",style: TextStyle(color: Colors.black,fontSize: 16,fontWeight: FontWeight.w400),)
+                                ],
+                              )
+                            ],
+                          ),
+                        ),Padding(
+                          padding: const EdgeInsets.only(top: 20.0),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.person,size: 60,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                              Text("Dob",style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600),),
+                              Text("26-jan",style: TextStyle(color: Colors.black,fontSize: 16,fontWeight: FontWeight.w400),)
+                                ],
+                              )
+                            ],
+                          ),
+                        ),Padding(
+                          padding: const EdgeInsets.only(top: 20.0),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.person,size: 60,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                              Text("City",style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600),),
+                              Text("Ahmedabad",style: TextStyle(color: Colors.black,fontSize: 16,fontWeight: FontWeight.w400),)
+                                ],
+                              )
+                            ],
+                          ),
+                        ),Padding(
+                          padding: const EdgeInsets.only(top: 20.0,bottom: 10),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.person,size: 60,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                              Text("State",style: TextStyle(color: Colors.black,fontSize: 18,fontWeight: FontWeight.w600),),
+                              Text("Gujarat",style: TextStyle(color: Colors.black,fontSize: 16,fontWeight: FontWeight.w400),)
+                                ],
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
+      )
     );
   }
 }
