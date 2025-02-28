@@ -29,6 +29,8 @@ dependencies:
   dropdown_button2:
   flutter_datetime_picker_plus :
   flutter_html:
+  country_pickers: ^3.0.1
+  http: ^0.13.6  # Add this line
 
 
   #appinio_social_share: ^0.2.6
@@ -40,6 +42,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons:
   font_awesome_flutter:
+
 
 #  awesome_notifications: ^0.8.2
 #  firebase_in_app_messaging: ^0.7.4+3

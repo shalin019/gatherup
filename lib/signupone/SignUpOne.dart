@@ -1,4 +1,6 @@
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:gatherup/signupone/SignUpOneModel.dart';
+import 'package:gatherup/signuptwo/SignUpTwo.dart';
 
 import '../FlutterFlowModel.dart';
 import '../FlutterFlowTheme.dart';
@@ -20,14 +22,13 @@ class SignuponeWidget extends StatefulWidget {
 
 class _SignuponeWidgetState extends State<SignuponeWidget> {
 
-
+TextEditingController? textEditingController=  TextEditingController();
+TextEditingController? textEditingControllertwo =  TextEditingController();
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-
-
   }
 
   @override
@@ -85,7 +86,7 @@ class _SignuponeWidgetState extends State<SignuponeWidget> {
                       child: Container(
                         width: double.infinity,
                         child: TextFormField(
-
+controller: textEditingControllertwo,
                           autofocus: false,
                           obscureText: false,
                           decoration: InputDecoration(
@@ -151,7 +152,7 @@ class _SignuponeWidgetState extends State<SignuponeWidget> {
                       child: Container(
                         width: double.infinity,
                         child: TextFormField(
-
+                          controller:textEditingController,
                           autofocus: false,
                           obscureText: false,
                           decoration: InputDecoration(
@@ -220,6 +221,9 @@ class _SignuponeWidgetState extends State<SignuponeWidget> {
                 child: FFButtonWidget(
                   onPressed: () {
                     print('Button pressed ...');
+
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> SignuptwoWidget(fieldOne: textEditingController!.text.toString(),fieldTwo: textEditingControllertwo!.text.toString())));
+
                   },
                   text: 'SIGN UP',
                   options: FFButtonOptions(

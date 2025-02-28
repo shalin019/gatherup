@@ -8,25 +8,32 @@ import 'package:flutter/material.dart';
 
 import '../FlutterFlowWidgets.dart';
 import '../FormFieldController.dart';
+import '../apiservice.dart';
 import 'SignUpTwoModel.dart';
 
 
 class SignuptwoWidget extends StatefulWidget {
-  const SignuptwoWidget({super.key});
+  SignuptwoWidget({super.key,required this.fieldOne, required this.fieldTwo});
+  String fieldOne;
+  String fieldTwo;
 
   @override
   State<SignuptwoWidget> createState() => _SignuptwoWidgetState();
 }
 
 class _SignuptwoWidgetState extends State<SignuptwoWidget> {
+  final ApiService apiService = ApiService();
 
-  FormFieldController<String>? dropDownValueController;
+  TextEditingController? textEditingController=  TextEditingController();
+  TextEditingController?  textEditingControllertwo = TextEditingController();
+  TextEditingController?  textEditingControllerthree = TextEditingController();
+  TextEditingController?  textEditingControllerfoour = TextEditingController();
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-
 
 
   }
@@ -43,7 +50,7 @@ class _SignuptwoWidgetState extends State<SignuptwoWidget> {
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
-        FocusManager.instance.primaryFocus?.unfocus();
+        //FocusManager.instance.primaryFocus?.unfocus();
       },
       child: Scaffold(
         key: scaffoldKey,
@@ -86,7 +93,7 @@ class _SignuptwoWidgetState extends State<SignuptwoWidget> {
                       child: Container(
                         width: double.infinity,
                         child: TextFormField(
-
+controller: textEditingController,
                           autofocus: false,
                           obscureText: false,
                           decoration: InputDecoration(
@@ -147,7 +154,7 @@ class _SignuptwoWidgetState extends State<SignuptwoWidget> {
                         ),
                       ),
                     ),
-                    Padding(
+                    /*Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(20, 15, 20, 0),
                       child: FlutterFlowDropDown<String>(
                         controller: dropDownValueController ??=
@@ -163,11 +170,11 @@ class _SignuptwoWidgetState extends State<SignuptwoWidget> {
                         hintText: 'Select your gender',
                         icon: Icon(
                           Icons.keyboard_arrow_down_rounded,
-                          /*color: FlutterFlowTheme.of(context).secondaryText,*/
+                          *//*color: FlutterFlowTheme.of(context).secondaryText,*//*
                           size: 24,
                         ),
-                        /*fillColor:
-                        FlutterFlowTheme.of(context).secondaryBackground,*/
+                        *//*fillColor:
+                        FlutterFlowTheme.of(context).secondaryBackground,*//*
                         elevation: 2,
                         borderColor: Colors.black,
                         borderWidth: 0,
@@ -178,6 +185,205 @@ class _SignuptwoWidgetState extends State<SignuptwoWidget> {
                         isSearchable: false,
 
                       ),
+                    ),*/
+
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 30, 20, 0),
+                      child: Container(
+                        width: double.infinity,
+                        child: TextFormField(
+controller: textEditingControllertwo,
+                          autofocus: false,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            isDense: true,
+                            /*labelStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                              fontFamily: 'Inter',
+                              letterSpacing: 0.0,
+                            ),*/
+                            hintText: 'Enter your name',
+                            /*hintStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                              fontFamily: 'Inter',
+                              fontSize: 16,
+                              letterSpacing: 0.0,
+                            ),*/
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colors.black,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colors.red,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colors.red,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            filled: true,
+                            /* fillColor: FlutterFlowTheme.of(context)
+                                .secondaryBackground,*/
+                          ),
+                          /* style:
+                          FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Inter',
+                            letterSpacing: 0.0,
+                          ),
+                          cursorColor: FlutterFlowTheme.of(context).primaryText,
+*/
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 30, 20, 0),
+                      child: Container(
+                        width: double.infinity,
+                        child: TextFormField(
+                          controller: textEditingControllerthree,
+                          autofocus: false,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            isDense: true,
+                            /*labelStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                              fontFamily: 'Inter',
+                              letterSpacing: 0.0,
+                            ),*/
+                            hintText: 'Enter your name',
+                            /*hintStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                              fontFamily: 'Inter',
+                              fontSize: 16,
+                              letterSpacing: 0.0,
+                            ),*/
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colors.black,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colors.red,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colors.red,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            filled: true,
+                            /* fillColor: FlutterFlowTheme.of(context)
+                                .secondaryBackground,*/
+                          ),
+                          /* style:
+                          FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Inter',
+                            letterSpacing: 0.0,
+                          ),
+                          cursorColor: FlutterFlowTheme.of(context).primaryText,
+*/
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 30, 20, 0),
+                      child: Container(
+                        width: double.infinity,
+                        child: TextFormField(
+                          controller: textEditingControllerfoour,
+                          autofocus: false,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            isDense: true,
+                            /*labelStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                              fontFamily: 'Inter',
+                              letterSpacing: 0.0,
+                            ),*/
+                            hintText: 'Enter your name',
+                            /*hintStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                              fontFamily: 'Inter',
+                              fontSize: 16,
+                              letterSpacing: 0.0,
+                            ),*/
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colors.black,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0x00000000),
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colors.red,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colors.red,
+                                width: 1,
+                              ),
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            filled: true,
+                            /* fillColor: FlutterFlowTheme.of(context)
+                                .secondaryBackground,*/
+                          ),
+                          /* style:
+                          FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Inter',
+                            letterSpacing: 0.0,
+                          ),
+                          cursorColor: FlutterFlowTheme.of(context).primaryText,
+*/
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -186,7 +392,15 @@ class _SignuptwoWidgetState extends State<SignuptwoWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
                 child: FFButtonWidget(
                   onPressed: () {
-                    print('Button pressed ...');
+                    apiService.registerUser(
+                      name: widget.fieldOne,
+                      gender: widget.fieldTwo,
+                      dob: textEditingController!.text ?? "",
+                      city: textEditingControllertwo!.text ?? "",
+                      state: textEditingControllerthree!.text ?? "",
+                      email: textEditingControllerfoour!.text ?? "",
+                      password: "123456789a",
+                    );
                   },
                   text: 'FINISH',
                   options: FFButtonOptions(
